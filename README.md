@@ -1,0 +1,2 @@
+# DynamicGame
+Dynamic Game Ida
