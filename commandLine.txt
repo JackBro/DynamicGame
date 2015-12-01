@@ -1,0 +1,1 @@
+g++ -std=c++11 -o main ./Engine/OpenGl.cpp ./GameLogic/actor.cpp main.cpp -lglfw -lGL -lGLEW

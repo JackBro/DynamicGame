@@ -4,7 +4,7 @@
 Actor* Actor::CreateActor(string name)
 {
 	Actor* createActor = new Actor();
-	createActor->Setname(name);
+	createActor->SetName(name);
 	createActor->SetTag("Default");
 	return createActor;
 }
@@ -17,7 +17,7 @@ string Actor::GetName()
 
 void Actor::SetName(string name)
 {
-	this.name = name;
+	this->name = name;
 }
 
 string Actor::GetTag()
@@ -27,6 +27,6 @@ string Actor::GetTag()
 
 void Actor::SetTag(string tag)
 {
-	this.tag = tag;
+	this->tag = tag;
 }
 
