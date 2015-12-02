@@ -1,7 +1,6 @@
 #include "OpenGl.h"
 
 
-
 OpenGl* OpenGl::CreateGraphicsSystem()
 {
 	OpenGl* opengl = new OpenGl();
@@ -11,8 +10,6 @@ OpenGl* OpenGl::CreateGraphicsSystem()
 
 int OpenGl::SetUpOpenGl()
 {
-	
-	
 	const char* vertex_shader =
 	"#version 330\n"
 	"attribute vec3 vp;"
@@ -65,18 +62,11 @@ int OpenGl::SetUpOpenGl()
 	glBindBuffer(GL_ARRAY_BUFFER, vbo);
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
-	vs = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vs, 1, &vertex_shader, NULL);
-	glCompileShader(vs);
-	fs = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(fs, 1, &fragment_shader, NULL);
-	glCompileShader(fs);
-	shader_programme = glCreateProgram();
-	glAttachShader(shader_programme, fs);
-	glAttachShader(shader_programme, vs);
-	glLinkProgram(shader_programme);
-	
-	
+	useShader = Shaders::Instance()->getShader("text");
+	if(useShader->shader_program == 0)
+	{
+		printf("fuck OFF MATE");
+	}	
 	return 0;
 	
 }
@@ -93,7 +83,7 @@ void OpenGl::Close()
 int OpenGl::Draw()
 {
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glUseProgram(shader_programme);
+		glUseProgram(useShader->shader_program);
 		glBindVertexArray(vao);
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glfwPollEvents();

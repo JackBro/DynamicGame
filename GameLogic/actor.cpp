@@ -1,11 +1,13 @@
 #include "actor.h"
 #include <vector>
+#include "../Engine/Shaders.h"
 
 Actor* Actor::CreateActor(string name)
 {
 	Actor* createActor = new Actor();
 	createActor->SetName(name);
 	createActor->SetTag("Default");
+	Shaders::Instance()->getShader("text");
 	return createActor;
 }
 

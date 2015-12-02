@@ -1,5 +1,4 @@
-#ifndef _ACTOR_H_
-#define _ACTOR_H_
+#pragma once
 #include <string>
 #include <vector>
 
@@ -27,7 +26,6 @@ class Actor
 		string GetTag();
 		void SetTag(string Tag);
 		
-		Actor* CreateActor(string name);
+		static Actor* CreateActor(string name);
 		
 };
-#endif

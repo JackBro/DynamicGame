@@ -1,9 +1,8 @@
-#ifndef _OPEN_GL_H_
-#define _OPEN_GL_H_
+#pragma once
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <stdio.h>
-
+#include "Shaders.h"
 
 	
 const GLfloat points[] = {
@@ -24,16 +23,11 @@ class OpenGl
 		const GLubyte* version;
 		GLuint vao;
 		GLuint vbo;
-		GLuint vs;
-		GLuint fs;
-		GLuint shader_programme;
 		int SetUpOpenGl();
-		
+		Shader* useShader;
 	public:
 	static OpenGl* CreateGraphicsSystem();
 	int Draw();
 	int ShouldClose();
 	void Close();
 };
-
-#endif
